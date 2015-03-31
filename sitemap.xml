@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://darknighten.github.io/blog/2015/04/01/using-octopress/</loc>
+    <lastmod>2015-04-01T06:43:38+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://darknighten.github.io/blog/2015/03/31/guan-yu-wo/</loc>
     <lastmod>2015-03-31T22:16:32+08:00</lastmod>
   </url>
   <url>
     <loc>http://darknighten.github.io/blog/archives/</loc>
-    <lastmod>2015-03-31T22:25:53+08:00</lastmod>
+    <lastmod>2015-04-01T06:45:54+08:00</lastmod>
   </url>
   <url>
     <loc>http://darknighten.github.io/</loc>
-    <lastmod>2015-03-31T22:25:53+08:00</lastmod>
+    <lastmod>2015-04-01T06:45:54+08:00</lastmod>
   </url>
   <url>
     <loc>http://darknighten.github.io/blog/categories/</loc>
-    <lastmod>2015-03-31T22:25:53+08:00</lastmod>
+    <lastmod>2015-04-01T06:45:54+08:00</lastmod>
   </url>
 </urlset>

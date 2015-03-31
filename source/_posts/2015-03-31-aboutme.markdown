@@ -7,7 +7,7 @@ author: Hu Ke
 categories: About
 ---
 
-# About Me
+# 关于作者
 
 在技术的道路上坚定前行
 

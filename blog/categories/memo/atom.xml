@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-01T06:49:57+08:00</updated>
+  <updated>2015-04-01T06:54:06+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -20,17 +20,17 @@
     <id>http://darknighten.github.io/blog/2015/04/01/using-octopress</id>
     <content type="html"><![CDATA[<p>经过长时间的爬坑，现将自己的总结与网上搜索到的资料精简整合一下</p>
 
-<p>1、建立新文章</p>
+<p><strong>1、</strong>建立新文章</p>
 
 <pre><code>rake new_post["这里是文章名"]
 </code></pre>
 
-<p>2、文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
+<p><strong>2、</strong>文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
 
 <pre><code>rake watch
 </code></pre>
 
-<p>3、编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
+<p><strong>3、</strong>编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
 
 <pre><code>rake generate
 rake preview
@@ -38,7 +38,7 @@ rake preview
 
 <p>在 <a href="http://localhost:4000">http://localhost:4000</a> 可见预览页面。</p>
 
-<p>4、没有问题的话，运行</p>
+<p><strong>4、</strong>没有问题的话，运行</p>
 
 <pre><code>rake deploy
 </code></pre>

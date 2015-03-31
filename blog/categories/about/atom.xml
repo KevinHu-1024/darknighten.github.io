@@ -4,7 +4,7 @@
   <title><![CDATA[Category: about | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/about/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-03-31T21:38:09+08:00</updated>
+  <updated>2015-03-31T22:25:53+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -14,11 +14,13 @@
 
   
   <entry>
-    <title type="html"><![CDATA[aboutMe]]></title>
-    <link href="http://darknighten.github.io/blog/2015/03/31/aboutme/"/>
-    <updated>2015-03-31T20:33:36+08:00</updated>
-    <id>http://darknighten.github.io/blog/2015/03/31/aboutme</id>
-    <content type="html"><![CDATA[<h1>关于作者</h1>
+    <title type="html"><![CDATA[关于我]]></title>
+    <link href="http://darknighten.github.io/blog/2015/03/31/guan-yu-wo/"/>
+    <updated>2015-03-31T22:16:32+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/03/31/guan-yu-wo</id>
+    <content type="html"><![CDATA[<hr />
+
+<h2>关于作者</h2>
 
 <p>在技术的道路上坚定前行</p>
 
@@ -26,17 +28,17 @@
 
 <p><a href="https://github.com/darknighten">Github</a></p>
 
-<hr />
+<p>E-mail: <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#104;&#x69;&#x2d;&#98;&#97;&#x69;&#x2d;&#100;&#x75;&#64;&#49;&#54;&#51;&#46;&#99;&#111;&#x6d;">&#104;&#x69;&#45;&#98;&#x61;&#105;&#45;&#100;&#117;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a></p>
 
 <h2>关于本博客</h2>
 
 <p>本博客博文分为以下几个部分：</p>
 
-<p><a href="http://github.darknighten.io"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; N ></em></p>
+<p><a href="http://github.darknighten.io"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
 
-<p><a href="http://github.darknighten.io"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; M ></em></p>
+<p><a href="http://github.darknighten.io"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
 
-<p><a href="http://github.darknighten.io"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; I ></em></p>
+<p><a href="http://github.darknighten.io"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
 ]]></content>
   </entry>
   

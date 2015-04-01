@@ -9,28 +9,26 @@ categories: Memo
 
 经过长时间的爬坑，现将自己的总结与网上搜索到的资料精简整合一下
 
-__1、__建立新文章
+1. 建立新文章
 
 	rake new_post["这里是文章名"]
 
 	
 
-__2、__文章生成位置在 `octopress/source/_posts` 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启
+2. 文章生成位置在 `octopress/source/_posts` 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启
 
 	rake watch
 	
 	
 
-__3、__编辑完成后 `control+c` 停止 rake watch ，运行
+3. 编辑完成后 `control+c` 停止 rake watch ，运行
 
 	rake generate
 	rake preview
 	
-	
+	在 <http://localhost:4000> 可见预览页面。
 
-在 <http://localhost:4000> 可见预览页面。
-
-__4、__没有问题的话，运行
+4. 没有问题的话，运行
 
 	rake deploy
 	
@@ -49,13 +47,13 @@ __4、__没有问题的话，运行
 
 @end
 
+<br />
 
-
-
+<br />
 
 ***
 
-您所查看的内容为本博客的 [**Memo**](http://darknighten.github.io/blog/categories/Memo/) 分类，更多内容可以浏览其他分类：
+您所查看的内容为本博客的 [**Memo**](http://darknighten.github.io/blog/categories/memo/) 分类，更多内容可以浏览其他分类：
 
 [**Note**](http://darknighten.github.io/blog/categories/note/): _主要是分享一些技术笔记,标签< Note >_
 

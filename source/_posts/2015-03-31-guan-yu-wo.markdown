@@ -10,6 +10,8 @@ categories: About
 
 ## 关于作者
 
+<br />
+
 在技术的道路上坚定前行
 
 
@@ -19,8 +21,13 @@ categories: About
 
 E-mail: <hi-bai-du@163.com>
 
+<br />
+<br />
+
 
 ## 关于本博客
+
+<br />
 
 本博客博文分为以下几个部分：
 

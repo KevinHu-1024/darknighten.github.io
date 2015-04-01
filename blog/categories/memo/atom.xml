@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-01T17:55:01+08:00</updated>
+  <updated>2015-04-01T21:11:44+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -14,34 +14,164 @@
 
   
   <entry>
+    <title type="html"><![CDATA[UIControl的几种事件]]></title>
+    <link href="http://darknighten.github.io/blog/2015/04/01/uicontrolde-ji-chong-shi-jian/"/>
+    <updated>2015-04-01T19:24:37+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/04/01/uicontrolde-ji-chong-shi-jian</id>
+    <content type="html"><![CDATA[<ol>
+<li><p><code>UIControlEventTouchDown</code></p>
+
+<p> 仅按下的动作。</p></li>
+<li><p><code>UIControlEventTouchDownRepeat</code></p>
+
+<p> 连续多次按下</p>
+
+<p> UIControlEventTouchDown -> UIControlEventTouchUpInside -> UIControlEventTouchDown -> UIControlEventTouchDownRepeat -> UIControlEventTouchUpInside -> UIControlEventTouchDown -> UIControlEventTouchDownRepeat -> UIControlEventTouchUpInside</p>
+
+<p> 除第一次按下之外，以后的每次都是一个UIControlEventTouchDown后跟一个UIControlEventTouchDownRepeat事件。</p></li>
+<li><p><code>UIControlEventTouchDragInside</code></p>
+
+<p> 按下，并在控件范围内拖动。</p></li>
+<li><p><code>UIControlEventTouchDragOutside</code></p>
+
+<p> 按下，并拖动至控件之外</p>
+
+<p> UIControlEventTouchDown -> UIControlEventTouchDragInside -> UIControlEventTouchDragExit -> UIControlEventTouchDragOutside</p></li>
+<li><p><code>UIControlEventTouchDragEnter</code></p>
+
+<p> 拖动时，从控件边界由外到内时的事件</p></li>
+<li><p><code>UIControlEventTouchDragExit</code></p>
+
+<p> 拖动时，从控件边界由内到外时的事件</p></li>
+<li><p><code>UIControlEventTouchUpInside</code></p>
+
+<p> 按下，并在控件范围内抬起。</p></li>
+<li><p><code>UIControlEventTouchUpOutside</code></p>
+
+<p> 按下，拖到控件外，再抬起</p>
+
+<p> UIControlEventTouchDown -> UIControlEventTouchDragInside *n -> UIControlEventTouchDragExit -> UIControlEventTouchUpOutside -> UIControlEventTouchUpOutside</p></li>
+</ol>
+
+
+<p>@end</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Swift与OC中的编译器指令（pragma mark）]]></title>
+    <link href="http://darknighten.github.io/blog/2015/04/01/swiftyu-oczhong-de-pragma-mark/"/>
+    <updated>2015-04-01T19:21:32+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/04/01/swiftyu-oczhong-de-pragma-mark</id>
+    <content type="html"><![CDATA[<p>Swift:</p>
+
+<pre><code>// MARK: -balabala
+// TODO: -balaba
+// FIXME: -balabala
+</code></pre>
+
+<p><br /></p>
+
+<p>OC:</p>
+
+<pre><code>#pragma mark -balabala
+#pragma message "balabala"
+#error "balabala"
+</code></pre>
+
+<p>@end</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cocoapods更新慢]]></title>
+    <link href="http://darknighten.github.io/blog/2015/04/01/cocoapodgeng-xin-man/"/>
+    <updated>2015-04-01T19:19:40+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/04/01/cocoapodgeng-xin-man</id>
+    <content type="html"><![CDATA[<p><code>pod install</code>和<code>pod update</code>都卡在<code>Analyzing dependencies</code>很久没有响应</p>
+
+<p>解决方案：为了避免以上命令触发cocoapods升级仓库，故添加以下参数来调用，速度大大提升</p>
+
+<pre><code>pod install --verbose --no-repo-update
+
+或
+
+pod update --verbose --no-repo-update
+</code></pre>
+
+<p><br /></p>
+
+<p>@end</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[用Octpress在Github写博客的几个步骤]]></title>
     <link href="http://darknighten.github.io/blog/2015/04/01/using-octopress/"/>
     <updated>2015-04-01T06:43:38+08:00</updated>
     <id>http://darknighten.github.io/blog/2015/04/01/using-octopress</id>
     <content type="html"><![CDATA[<p>经过长时间的爬坑，现将自己的总结与网上搜索到的资料精简整合一下</p>
 
-<p><strong>1、</strong>建立新文章</p>
+<ol>
+<li><p>建立新文章</p>
 
-<pre><code>rake new_post["这里是文章名"]
-</code></pre>
+<p> rake new_post[&ldquo;这里是文章名&rdquo;]</p></li>
+<li><p>文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
 
-<p><strong>2、</strong>文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
+<p> rake watch</p></li>
+<li><p>编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
 
-<pre><code>rake watch
-</code></pre>
+<p> rake generate
+ rake preview</p>
 
-<p><strong>3、</strong>编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
+<p> 在 <a href="http://localhost:4000">http://localhost:4000</a> 可见预览页面。</p></li>
+<li><p>没有问题的话，运行</p>
 
-<pre><code>rake generate
-rake preview
-</code></pre>
+<p> rake deploy</p></li>
+</ol>
 
-<p>在 <a href="http://localhost:4000">http://localhost:4000</a> 可见预览页面。</p>
-
-<p><strong>4、</strong>没有问题的话，运行</p>
-
-<pre><code>rake deploy
-</code></pre>
 
 <p>程序会将生成好的静态页面上传至github的默认分支（默认为master分支）下，此时可以在浏览器输入你的网址进行浏览了。</p>
 
@@ -55,9 +185,13 @@ git push origin source
 
 <p>@end</p>
 
+<p><br /></p>
+
+<p><br /></p>
+
 <hr />
 
-<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/Memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
 
 <p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
 

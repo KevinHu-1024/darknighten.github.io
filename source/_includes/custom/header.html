@@ -1,4 +1,6 @@
-href="{{ root_url }}/">{{ site.title }}
-{% if site.subtitle %}
-{{ site.subtitle }}
-{% endif %}
+<hgroup>
+    <h1><a class="link" href="{{ root_url }}/">{{ site.title }}</a></h1>
+    {% if site.subtitle %}
+    <h2 style="color:#6e6e6e;" >{{ site.subtitle }}</h2>
+    {% endif %}
+</hgroup>

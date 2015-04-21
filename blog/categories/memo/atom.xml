@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-21T22:21:44+08:00</updated>
+  <updated>2015-04-21T22:42:40+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -18,7 +18,9 @@
     <link href="http://darknighten.github.io/blog/2015/04/03/passingdatainsegue/"/>
     <updated>2015-04-03T23:31:52+08:00</updated>
     <id>http://darknighten.github.io/blog/2015/04/03/passingdatainsegue</id>
-    <content type="html"><![CDATA[<h3>To create an item after tapping the Done button</h3>
+    <content type="html"><![CDATA[<p>这些是学习官方教程的一些笔记，原载于Evernote</p>
+
+<h3>To create an item after tapping the Done button</h3>
 
 <p>(From RoadmapiOS)</p>
 
@@ -127,6 +129,22 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 <h3>Recap</h3>
 
 <p>You’re almost done with this introductory tour of developing apps for iOS. The final section gives you more information about how to find your way around the documentation, and it suggests some next steps you might take as you learn how to create more advanced apps.</p>
+
+<p>@end</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
 ]]></content>
   </entry>
   
@@ -137,7 +155,8 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
     <id>http://darknighten.github.io/blog/2015/04/03/cllocation-introduction</id>
     <content type="html"><![CDATA[<hr />
 
-<p><br /></p>
+<p>这些是学习官方教程的一些笔记
+<br /></p>
 
 <h3>Two services can be used:</h3>
 
@@ -216,6 +235,22 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 <li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.;</p></li>
 </ol>
 
+
+<p>@end</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
 ]]></content>
   </entry>
   

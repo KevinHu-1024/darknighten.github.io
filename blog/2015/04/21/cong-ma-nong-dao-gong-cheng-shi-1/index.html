@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Several types of segues - Darknighten‘s Cave</title>
+	<title>从码农到工程师(1)——一个App的进化（Building……） - Darknighten‘s Cave</title>
 	<meta name="author" content="H.K.">
 
 	
-	<meta name="description" content="Several Types of Segues 这些是学习官方教程的一些笔记，原载于Evernote Push. A push segue adds the destination view controller to the navigation stack. Push segues may &hellip;">
+	<meta name="description" content="从码农到工程师(1)——一个App的进化（Building……） 上周由于加班断po了一周，罪过罪过，算上之前攒下来没发的数篇笔记，已经累计N篇了。这周为Tock周，开始更新笔记。 从这周开始笔记中将增加一个系列笔记：从码农到工程师 记得大学期间在写单片机的时候，在论坛上看过一个帖子《 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Darknighten‘s Cave" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://darknighten.github.io/blog/2015/04/03/severaltypesofsegues/">
+	<link rel="canonical" href="http://darknighten.github.io/blog/2015/04/21/cong-ma-nong-dao-gong-cheng-shi-1/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -99,24 +99,44 @@
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">Several Types of Segues</h1>
-	<div class="entry-content" itemprop="articleBody"><p>这些是学习官方教程的一些笔记，原载于Evernote</p>
+	<h1 class="title" itemprop="name">从码农到工程师(1)——一个App的进化（Building……）</h1>
+	<div class="entry-content" itemprop="articleBody"><p><br /></p>
+
+<p>上周由于加班断po了一周，罪过罪过，算上之前攒下来没发的数篇笔记，已经累计N篇了。这周为Tock周，开始更新笔记。</p>
+
+<p>从这周开始笔记中将增加一个系列笔记：从码农到工程师</p>
+
+<p>记得大学期间在写单片机的时候，在论坛上看过一个帖子《从电子爱好者到工程师》balabala。。。</p>
+
+<p>天气预报类应用，应该算是iOS开发初学者必做的一种应用了，他的实现比较简单，实用性也较高，简单做一做就可以天天用自己的App了。但是麻雀虽小，五脏俱全，一款天气预报里至少需要如下组件：</p>
 
 <ul>
-<li><p><strong><em>Push.</em></strong> A push segue adds the destination view controller to the navigation stack. Push segues may only be used when the source view controller is connected to a navigation controller.</p></li>
-<li><p><strong><em>Modal.</em></strong> A modal segue is simply one view controller presenting another controller modally, requiring a user to perform some operation on the presented controller before returning to the main flow of the app.</p>
-
-<p>  A modal view controller isn&rsquo;t added to a navigation stack; instead, it&rsquo;s generally considered to be a child of the presenting view controller. The presenting view controller is responsible for dismissing the modalview controller it created and presented.</p></li>
-<li><p><strong><em>Custom.</em></strong> You can define your own custom transition by subclassing UIStoryboardSegue.</p></li>
-<li><p><strong><em>Unwind.</em></strong> An unwind segue moves backward through one or more segues to return the user to an existing instance of a view controller. You use unwind segues to implement reverse navigation.</p>
-
-<blockquote><p>An unwind segue is created by adding an action method to the destination view controller (the view controller you want to unwind to). A method that can be unwound to must return an action ( <code>IBAction</code> ) and take in a storyboard segue ( <code>UIStoryboardSegue</code> ) as a parameter. Because you want to unwind back to <code>XYZToDoListTableViewController</code> , you need to add an action method with this format to the <code>XYZToDoListTableViewController</code>  interface and implementation.</p>
-
-<p>  <em>—— RoadMapiOS,Apple</em></p></blockquote></li>
+<li>框架层面：Foundation、UIKit、CoreLocation、网络框架、解析框架、第三方库的使用</li>
+<li>语言层面：面向对象特性、协议、代理、通知中心</li>
+<li>架构层面：抽象、解耦、重构</li>
+<li>设计层面：交互、UI</li>
 </ul>
 
 
-<p>Instead of segues, scenes may also be connected by a relationship. For example, there’s a relationship between the navigation controller and its root view controller. In this case, the relationship represents the containment of the root view controller by the navigation controller.</p>
+<h2>原生动物：单细胞——混杂与有效</h2>
+
+<blockquote><p>代码混在视图控制器中，完成基本功能，验证想法正确与否</p>
+
+<h2>植物：器官——抽象与面向对象</h2>
+
+<p>从上一个代码中，抽离出与网络相关的代码和与定位相关的代码，并将他们分别作为两个对象——WeatherService和LocationService，用println进行功能测试</p>
+
+<h2>动物：系统——设计模式与解耦</h2>
+
+<p>在第二阶段中，虽然我们完成了一些抽离工作，但因为涉及到对象间相互传值的需要，所以有一些相关代码混杂在视图控制器中。为了进一步降低他们之间的耦合程度，我们使用了设计模式，类比单片机的中断balbala。这样程序内部就变成由主视图控制器、两个器官，三者共同组成了一个系统</p>
+
+<h2>顶点：人——灵活与严谨</h2>
+
+<p>App做到这里，已经实现了基本的业务逻辑。但是我们仍需面对的是，用户在使用中可能出现的各种意外情况，如：手机的定位服务没开，没有授权，iOS版本不同，无法定位，没有网络，内存不足，意外终止，手动终止等等。这些事件可能会导致我们的程序crash掉，所以我们要在程序中做好充分的冗余工作。就像人一样，具有对意外的应激性，从而使我们的程序更加健壮。</p>
+
+<h2>终极奥义：美女——美观与交互</h2>
+
+<p>至此，我们才刚刚弄好了底层…</p></blockquote>
 
 <p>@end</p>
 
@@ -126,7 +146,7 @@
 
 <hr />
 
-<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a> 分类，更多内容可以浏览其他分类：</p>
 
 <p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-01T22:15:46+08:00</updated>
+  <updated>2015-04-21T21:32:36+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -12,6 +12,212 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PassingDataInSegue]]></title>
+    <link href="http://darknighten.github.io/blog/2015/04/03/passingdatainsegue/"/>
+    <updated>2015-04-03T23:31:52+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/04/03/passingdatainsegue</id>
+    <content type="html"><![CDATA[<h3>To create an item after tapping the Done button</h3>
+
+<p>(From RoadmapiOS)</p>
+
+<ol>
+<li>Select <code>XYZAddToDoItemViewController.m</code> in the project navigator.</li>
+<li><p>Add the <code>prepareForSegue:</code> method below the <code>@implementation</code> line:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+ }
+</code></pre></li>
+<li><p>In the method, see whether the Done button was tapped. If it wasn&rsquo;t, instead of saving the item, you want the method to return without doing anything else.</p>
+
+<pre><code> if  (sender  !=  self.doneButton)  return;
+</code></pre></li>
+<li><p>See whether there&rsquo;s text in the text field.</p>
+
+<pre><code> if  (self.textField.text.length  &gt;  0)  {
+ }
+</code></pre></li>
+<li><p>If there&rsquo;s text, create a new item and give it the name of the text in the text field. Also, ensure that the completed state is set to <code>NO</code>.</p>
+
+<pre><code> self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+ self.toDoItem.itemName  =  self.textField.text;
+ self.toDoItem.completed  =  NO;
+</code></pre>
+
+<p> If there isn&rsquo;t text, you don&rsquo;t want to save the item, so you won&rsquo;t do anything else.</p>
+
+<p> Your <code>prepareForSegue:</code> method should look like this:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+     if  (sender  !=  self.doneButton)  return;
+     if  (self.textField.text.length  &gt;  0)  {
+         self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+         self.toDoItem.itemName  =  self.textField.text;
+         self.toDoItem.completed  =  NO;
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<p>Now that you&rsquo;ve created a new item, you need to pass the item back to <code>XYZToDoListTableViewController</code> so that it can add the item to the to-do list. To accomplish this, you need to revisit the <code>unwindToList:</code> method that you wrote in the second tutorial. This method gets called when the <code>XYZAddToDoItemViewController</code> scene closes, which happens when the user taps either the Cancel or the Done button.</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<p>The <code>unwindToList:</code> method takes a segue as a parameter, like all methods that are used as targets for an unwind segue. The segue parameter is the segue that unwinds from <code>XYZAddToDoItemViewController</code> back to <code>XYZToDoListTableViewController</code> . Because a segue is a transition between two view controllers, it is aware of its source view controller—<code>XYZAddToDoItemViewController</code>. By asking the segue object for its source view controller, you can access any data stored in the source view controller in the <code>unwindToList:</code> method. In this case, you want to access <code>toDoItem</code>. If it&rsquo;s nil, the item was never created—either the text field had no text or the user tapped the Cancel button. If there&rsquo;s a value for <code>toDoItem</code> , you retrieve the item, add it to your <code>toDoItems</code> array, and display it in the to-do list by reloading the data in the table view.</p>
+
+<h3>To store and display the new item</h3>
+
+<ol>
+<li>In the project navigator, select <code>XYZToDoListTableViewController.m</code>.</li>
+<li><p>In <code>XYZToDoListTableViewController.m</code> , add an import declaration to<code>XYZAddToDoItemViewController.h</code> above the <code>@interface</code> line.</p>
+
+<pre><code> #import  "XYZAddToDoItemViewController.h
+</code></pre></li>
+<li><p>Find the <code>unwindToList:</code> method you added in the second tutorial.</p></li>
+<li><p>In this method, retrieve the source view controller—the controller you&rsquo;re unwinding from,<code>XYZAddToDoItemViewController</code> .</p>
+
+<pre><code> XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+</code></pre></li>
+<li><p>Retrieve the controller&rsquo;s to-do item.</p>
+
+<pre><code> XYZToDoItem  *item  =  source.toDoItem;
+</code></pre>
+
+<p> This is the item that was created when the Done button was tapped.</p></li>
+<li><p>See whether the item exists.</p>
+
+<pre><code> if  (item  !=  nil)  {
+
+ }
+</code></pre>
+
+<p> If it’s nil, either the Cancel button closed the screen or the text field had no text, so you don’t want to save the item.If it does exist, add the item to your <code>toDoItems</code> array.</p>
+
+<pre><code> [self.toDoItems  addObject:item];
+</code></pre></li>
+<li><p>Reload the data in your table.
+Because the table view doesn’t keep track of its data, it’s the responsibility of the data source—in this case, your table view controller—to notify the table view when there’s new data for it to display.</p>
+
+<pre><code>[self.tableView  reloadData];
+</code></pre>
+
+<p>Your <code>unwindToList:</code> method should look like this:</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<pre><code>-  (IBAction)unwindToList:(UIStoryboardSegue  *)segue
+{
+    XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+    XYZToDoItem  *item  =  source.toDoItem;
+    if  (item  !=  nil)  {
+        [self.toDoItems  addObject:item];
+        [self.tableView  reloadData];
+    }
+}
+</code></pre></li>
+</ol>
+
+
+<p><strong>Checkpoint:</strong>  Run your app. Now when you click the Add button (+) and create a new item, you should see it in your to-do list. Congratulations! You’ve created an app that takes input from the user, stores it in an object, and passes that object between two view controllers. This is the foundation of moving data between scenes in a storyboard-based app.</p>
+
+<h3>Recap</h3>
+
+<p>You’re almost done with this introductory tour of developing apps for iOS. The final section gives you more information about how to find your way around the documentation, and it suggests some next steps you might take as you learn how to create more advanced apps.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CLLocation Introduction (The official tutorial study notes)]]></title>
+    <link href="http://darknighten.github.io/blog/2015/04/03/cllocation-introduction/"/>
+    <updated>2015-04-03T23:26:15+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/04/03/cllocation-introduction</id>
+    <content type="html"><![CDATA[<hr />
+
+<p><br /></p>
+
+<h3>Two services can be used:</h3>
+
+<ol>
+<li><p>standard location service:</p>
+
+<ul>
+<li><p>configurable, general-purpose solution.</p></li>
+<li><p>getting location and tracking location changes for specified level of accuracy</p></li>
+</ul>
+</li>
+<li><p>significant-change location service:</p>
+
+<ul>
+<li><p>updates only when there has been a significant change in the device&rsquo;s location.</p></li>
+<li><p>such 500m or more.</p></li>
+</ul>
+</li>
+</ol>
+
+
+<p>Gathering location data is a power-intensive operation.Regardless of the importance of location data in your app, you&rsquo;d better periodically update it in case of draining battery.</p>
+
+<p>eg.</p>
+
+<ul>
+<li><p>Must keep monitoring location even while it&rsquo;s in the background;</p></li>
+<li><p>GPS-level accuracy isn&rsquo;t necessary for your app and you don&rsquo;t need continuous tracking.</p></li>
+</ul>
+
+
+<p><br /></p>
+
+<h3>Determining Whether Location Services Are Available</h3>
+
+<p>There are situations where location services may not be available:</p>
+
+<ul>
+<li><p>User disables location services in the Settings app or System Preferences;</p></li>
+<li><p>User denies location services for a specific app;</p></li>
+<li><p>Airplane Mode</p></li>
+</ul>
+
+
+<p>For these reasons, it&rsquo;s recommended that you always call the <code>locationServicesEnabled</code> class method of <code>CLLocatioManager</code> before attempting to start either two location services.It will return a Boolean.</p>
+
+<p><br /></p>
+
+<h3>Starting the Standard Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.</p></li>
+</ol>
+
+
+<p><br /></p>
+
+<ul>
+<li><p>As location data already becomes available, the location manager notifies its assigned delegate object.</p></li>
+<li><p>If a location update has already been delivered, you can also get the most recent location data directly from the <code>CLLocatinManager</code> object without waiting for a new event to be delivered.</p></li>
+<li><p>To stop the delivery of location updates, call the <code>stopUpdatingLocation</code> method of the  location manager object.</p></li>
+</ul>
+
+
+<p>See->&ldquo;Receiving Location Data from a Service&rdquo;</p>
+
+<p><br /></p>
+
+<h3>Start the Significant-Change Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.;</p></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[UIControl的几种事件]]></title>
@@ -128,60 +334,6 @@ pod update --verbose --no-repo-update
 </code></pre>
 
 <p><br /></p>
-
-<p>@end</p>
-
-<p><br /></p>
-
-<p><br /></p>
-
-<hr />
-
-<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/memo/"><strong>Memo</strong></a> 分类，更多内容可以浏览其他分类：</p>
-
-<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
-
-<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
-
-<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[用Octpress在Github写博客的几个步骤]]></title>
-    <link href="http://darknighten.github.io/blog/2015/04/01/using-octopress/"/>
-    <updated>2015-04-01T06:43:38+08:00</updated>
-    <id>http://darknighten.github.io/blog/2015/04/01/using-octopress</id>
-    <content type="html"><![CDATA[<p>经过长时间的爬坑，现将自己的总结与网上搜索到的资料精简整合一下</p>
-
-<ol>
-<li><p>建立新文章</p>
-
-<p> rake new_post[&ldquo;这里是文章名&rdquo;]</p></li>
-<li><p>文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
-
-<p> rake watch</p></li>
-<li><p>编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
-
-<p> rake generate
- rake preview</p>
-
-<p> 在 <a href="http://localhost:4000">http://localhost:4000</a> 可见预览页面。</p></li>
-<li><p>没有问题的话，运行</p>
-
-<p> rake deploy</p></li>
-</ol>
-
-
-<p>程序会将生成好的静态页面上传至github的默认分支（默认为master分支）下，此时可以在浏览器输入你的网址进行浏览了。</p>
-
-<p>如果要将source文件夹也同步进去，则接下来运行</p>
-
-<pre><code>git check source
-git add -A (这里常用 git add .)
-git commit -m "写更新信息"
-git push origin source
-</code></pre>
 
 <p>@end</p>
 

@@ -1,0 +1,221 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>CLLocation Introduction (The official tutorial study notes) - Darknighten‘s Cave</title>
+	<meta name="author" content="H.K.">
+
+	
+	<meta name="description" content="CLLocation Introduction (the Official Tutorial Study Notes) Two services can be used: standard location service: configurable, general-purpose &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Darknighten‘s Cave" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://darknighten.github.io/blog/2015/04/03/cllocation-introduction/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("hi-bai-du@163.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+<hgroup>
+    <h1><a class="link" href="/">Darknighten‘s Cave</a></h1>
+    
+    <h2 style="color:#6e6e6e;" >Thingking,Doing</h2>
+    
+</hgroup>
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://darknighten.github.io/blog/2015/03/31/guan-yu-wo/">About Me</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+<section class="aboutme">
+  <p>
+    跬步千里，毋忘初心。
+  </p>
+</section>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href="mailto:hi-bai-du@163.com" title="Email">Email</a>
+		
+		
+		
+		
+		
+			<a class="github" href="https://github.com/darknighten" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">CLLocation Introduction (the Official Tutorial Study Notes)</h1>
+	<div class="entry-content" itemprop="articleBody"><hr />
+
+<p><br /></p>
+
+<h3>Two services can be used:</h3>
+
+<ol>
+<li><p>standard location service:</p>
+
+<ul>
+<li><p>configurable, general-purpose solution.</p></li>
+<li><p>getting location and tracking location changes for specified level of accuracy</p></li>
+</ul>
+</li>
+<li><p>significant-change location service:</p>
+
+<ul>
+<li><p>updates only when there has been a significant change in the device&rsquo;s location.</p></li>
+<li><p>such 500m or more.</p></li>
+</ul>
+</li>
+</ol>
+
+
+<p>Gathering location data is a power-intensive operation.Regardless of the importance of location data in your app, you&rsquo;d better periodically update it in case of draining battery.</p>
+
+<p>eg.</p>
+
+<ul>
+<li><p>Must keep monitoring location even while it&rsquo;s in the background;</p></li>
+<li><p>GPS-level accuracy isn&rsquo;t necessary for your app and you don&rsquo;t need continuous tracking.</p></li>
+</ul>
+
+
+<p><br /></p>
+
+<h3>Determining Whether Location Services Are Available</h3>
+
+<p>There are situations where location services may not be available:</p>
+
+<ul>
+<li><p>User disables location services in the Settings app or System Preferences;</p></li>
+<li><p>User denies location services for a specific app;</p></li>
+<li><p>Airplane Mode</p></li>
+</ul>
+
+
+<p>For these reasons, it&rsquo;s recommended that you always call the <code>locationServicesEnabled</code> class method of <code>CLLocatioManager</code> before attempting to start either two location services.It will return a Boolean.</p>
+
+<p><br /></p>
+
+<h3>Starting the Standard Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.</p></li>
+</ol>
+
+
+<p><br /></p>
+
+<ul>
+<li><p>As location data already becomes available, the location manager notifies its assigned delegate object.</p></li>
+<li><p>If a location update has already been delivered, you can also get the most recent location data directly from the <code>CLLocatinManager</code> object without waiting for a new event to be delivered.</p></li>
+<li><p>To stop the delivery of location updates, call the <code>stopUpdatingLocation</code> method of the  location manager object.</p></li>
+</ul>
+
+
+<p>See->&ldquo;Receiving Location Data from a Service&rdquo;</p>
+
+<p><br /></p>
+
+<h3>Start the Significant-Change Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.;</p></li>
+</ol>
+
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2015
+
+    H.K.
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://darknighten.github.io/blog/2015/04/03/passingdatainsegue/</loc>
+    <lastmod>2015-04-03T23:31:52+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://darknighten.github.io/blog/2015/04/03/severaltypesofsegues/</loc>
+    <lastmod>2015-04-03T23:28:46+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://darknighten.github.io/blog/2015/04/03/cllocation-introduction/</loc>
+    <lastmod>2015-04-03T23:26:15+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://darknighten.github.io/blog/2015/04/01/uicontrolde-ji-chong-shi-jian/</loc>
     <lastmod>2015-04-01T19:24:37+08:00</lastmod>
   </url>
@@ -22,14 +34,14 @@
   </url>
   <url>
     <loc>http://darknighten.github.io/blog/archives/</loc>
-    <lastmod>2015-04-01T22:15:46+08:00</lastmod>
+    <lastmod>2015-04-21T21:32:36+08:00</lastmod>
   </url>
   <url>
     <loc>http://darknighten.github.io/</loc>
-    <lastmod>2015-04-01T22:15:46+08:00</lastmod>
+    <lastmod>2015-04-21T21:32:36+08:00</lastmod>
   </url>
   <url>
     <loc>http://darknighten.github.io/blog/categories/</loc>
-    <lastmod>2015-04-01T22:15:46+08:00</lastmod>
+    <lastmod>2015-04-21T21:32:36+08:00</lastmod>
   </url>
 </urlset>

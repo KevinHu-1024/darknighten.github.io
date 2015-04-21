@@ -1,0 +1,249 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>PassingDataInSegue - Darknighten‘s Cave</title>
+	<meta name="author" content="H.K.">
+
+	
+	<meta name="description" content="PassingDataInSegue To create an item after tapping the Done button (From RoadmapiOS) Select XYZAddToDoItemViewController.m in the project navigator &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Darknighten‘s Cave" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://darknighten.github.io/blog/2015/04/03/passingdatainsegue/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("hi-bai-du@163.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+<hgroup>
+    <h1><a class="link" href="/">Darknighten‘s Cave</a></h1>
+    
+    <h2 style="color:#6e6e6e;" >Thingking,Doing</h2>
+    
+</hgroup>
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://darknighten.github.io/blog/2015/03/31/guan-yu-wo/">About Me</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+<section class="aboutme">
+  <p>
+    跬步千里，毋忘初心。
+  </p>
+</section>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+			<a class="email" href="mailto:hi-bai-du@163.com" title="Email">Email</a>
+		
+		
+		
+		
+		
+			<a class="github" href="https://github.com/darknighten" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">PassingDataInSegue</h1>
+	<div class="entry-content" itemprop="articleBody"><h3>To create an item after tapping the Done button</h3>
+
+<p>(From RoadmapiOS)</p>
+
+<ol>
+<li>Select <code>XYZAddToDoItemViewController.m</code> in the project navigator.</li>
+<li><p>Add the <code>prepareForSegue:</code> method below the <code>@implementation</code> line:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+ }
+</code></pre></li>
+<li><p>In the method, see whether the Done button was tapped. If it wasn&rsquo;t, instead of saving the item, you want the method to return without doing anything else.</p>
+
+<pre><code> if  (sender  !=  self.doneButton)  return;
+</code></pre></li>
+<li><p>See whether there&rsquo;s text in the text field.</p>
+
+<pre><code> if  (self.textField.text.length  &gt;  0)  {
+ }
+</code></pre></li>
+<li><p>If there&rsquo;s text, create a new item and give it the name of the text in the text field. Also, ensure that the completed state is set to <code>NO</code>.</p>
+
+<pre><code> self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+ self.toDoItem.itemName  =  self.textField.text;
+ self.toDoItem.completed  =  NO;
+</code></pre>
+
+<p> If there isn&rsquo;t text, you don&rsquo;t want to save the item, so you won&rsquo;t do anything else.</p>
+
+<p> Your <code>prepareForSegue:</code> method should look like this:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+     if  (sender  !=  self.doneButton)  return;
+     if  (self.textField.text.length  &gt;  0)  {
+         self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+         self.toDoItem.itemName  =  self.textField.text;
+         self.toDoItem.completed  =  NO;
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<p>Now that you&rsquo;ve created a new item, you need to pass the item back to <code>XYZToDoListTableViewController</code> so that it can add the item to the to-do list. To accomplish this, you need to revisit the <code>unwindToList:</code> method that you wrote in the second tutorial. This method gets called when the <code>XYZAddToDoItemViewController</code> scene closes, which happens when the user taps either the Cancel or the Done button.</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<p>The <code>unwindToList:</code> method takes a segue as a parameter, like all methods that are used as targets for an unwind segue. The segue parameter is the segue that unwinds from <code>XYZAddToDoItemViewController</code> back to <code>XYZToDoListTableViewController</code> . Because a segue is a transition between two view controllers, it is aware of its source view controller—<code>XYZAddToDoItemViewController</code>. By asking the segue object for its source view controller, you can access any data stored in the source view controller in the <code>unwindToList:</code> method. In this case, you want to access <code>toDoItem</code>. If it&rsquo;s nil, the item was never created—either the text field had no text or the user tapped the Cancel button. If there&rsquo;s a value for <code>toDoItem</code> , you retrieve the item, add it to your <code>toDoItems</code> array, and display it in the to-do list by reloading the data in the table view.</p>
+
+<h3>To store and display the new item</h3>
+
+<ol>
+<li>In the project navigator, select <code>XYZToDoListTableViewController.m</code>.</li>
+<li><p>In <code>XYZToDoListTableViewController.m</code> , add an import declaration to<code>XYZAddToDoItemViewController.h</code> above the <code>@interface</code> line.</p>
+
+<pre><code> #import  "XYZAddToDoItemViewController.h
+</code></pre></li>
+<li><p>Find the <code>unwindToList:</code> method you added in the second tutorial.</p></li>
+<li><p>In this method, retrieve the source view controller—the controller you&rsquo;re unwinding from,<code>XYZAddToDoItemViewController</code> .</p>
+
+<pre><code> XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+</code></pre></li>
+<li><p>Retrieve the controller&rsquo;s to-do item.</p>
+
+<pre><code> XYZToDoItem  *item  =  source.toDoItem;
+</code></pre>
+
+<p> This is the item that was created when the Done button was tapped.</p></li>
+<li><p>See whether the item exists.</p>
+
+<pre><code> if  (item  !=  nil)  {
+
+ }
+</code></pre>
+
+<p> If it’s nil, either the Cancel button closed the screen or the text field had no text, so you don’t want to save the item.If it does exist, add the item to your <code>toDoItems</code> array.</p>
+
+<pre><code> [self.toDoItems  addObject:item];
+</code></pre></li>
+<li><p>Reload the data in your table.
+Because the table view doesn’t keep track of its data, it’s the responsibility of the data source—in this case, your table view controller—to notify the table view when there’s new data for it to display.</p>
+
+<pre><code>[self.tableView  reloadData];
+</code></pre>
+
+<p>Your <code>unwindToList:</code> method should look like this:</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<pre><code>-  (IBAction)unwindToList:(UIStoryboardSegue  *)segue
+{
+    XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+    XYZToDoItem  *item  =  source.toDoItem;
+    if  (item  !=  nil)  {
+        [self.toDoItems  addObject:item];
+        [self.tableView  reloadData];
+    }
+}
+</code></pre></li>
+</ol>
+
+
+<p><strong>Checkpoint:</strong>  Run your app. Now when you click the Add button (+) and create a new item, you should see it in your to-do list. Congratulations! You’ve created an app that takes input from the user, stores it in an object, and passes that object between two view controllers. This is the foundation of moving data between scenes in a storyboard-based app.</p>
+
+<h3>Recap</h3>
+
+<p>You’re almost done with this introductory tour of developing apps for iOS. The final section gives you more information about how to find your way around the documentation, and it suggests some next steps you might take as you learn how to create more advanced apps.</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2015
+
+    H.K.
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

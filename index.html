@@ -9,8 +9,7 @@
 	<meta name="author" content="H.K.">
 
 	
-	<meta name="description" content="memo UIControl的几种事件 UIControlEventTouchDown 仅按下的动作。
-UIControlEventTouchDownRepeat 连续多次按下 UIControlEventTouchDown -> UIControlEventTouchUpInside -> &hellip;&#8221;>
+	<meta name="description" content="memo PassingDataInSegue To create an item after tapping the Done button (From RoadmapiOS) Select XYZAddToDoItemViewController.m in the project &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -101,6 +100,309 @@ UIControlEventTouchDownRepeat 连续多次按下 UIControlEventTouchDown -> UICo
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-03T23:31:52+08:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/memo/'>memo</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2015/04/03/passingdatainsegue/" itemprop="url">PassingDataInSegue</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>To create an item after tapping the Done button</h3>
+
+<p>(From RoadmapiOS)</p>
+
+<ol>
+<li>Select <code>XYZAddToDoItemViewController.m</code> in the project navigator.</li>
+<li><p>Add the <code>prepareForSegue:</code> method below the <code>@implementation</code> line:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+ }
+</code></pre></li>
+<li><p>In the method, see whether the Done button was tapped. If it wasn&rsquo;t, instead of saving the item, you want the method to return without doing anything else.</p>
+
+<pre><code> if  (sender  !=  self.doneButton)  return;
+</code></pre></li>
+<li><p>See whether there&rsquo;s text in the text field.</p>
+
+<pre><code> if  (self.textField.text.length  &gt;  0)  {
+ }
+</code></pre></li>
+<li><p>If there&rsquo;s text, create a new item and give it the name of the text in the text field. Also, ensure that the completed state is set to <code>NO</code>.</p>
+
+<pre><code> self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+ self.toDoItem.itemName  =  self.textField.text;
+ self.toDoItem.completed  =  NO;
+</code></pre>
+
+<p> If there isn&rsquo;t text, you don&rsquo;t want to save the item, so you won&rsquo;t do anything else.</p>
+
+<p> Your <code>prepareForSegue:</code> method should look like this:</p>
+
+<pre><code> -  (void)  prepareForSegue:(UIStoryboardSegue  *)segue  sender:(id)sender
+ {
+     if  (sender  !=  self.doneButton)  return;
+     if  (self.textField.text.length  &gt;  0)  {
+         self.toDoItem  =  [[XYZToDoItem  alloc]  init];
+         self.toDoItem.itemName  =  self.textField.text;
+         self.toDoItem.completed  =  NO;
+     }
+ }
+</code></pre></li>
+</ol>
+
+
+<p>Now that you&rsquo;ve created a new item, you need to pass the item back to <code>XYZToDoListTableViewController</code> so that it can add the item to the to-do list. To accomplish this, you need to revisit the <code>unwindToList:</code> method that you wrote in the second tutorial. This method gets called when the <code>XYZAddToDoItemViewController</code> scene closes, which happens when the user taps either the Cancel or the Done button.</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<p>The <code>unwindToList:</code> method takes a segue as a parameter, like all methods that are used as targets for an unwind segue. The segue parameter is the segue that unwinds from <code>XYZAddToDoItemViewController</code> back to <code>XYZToDoListTableViewController</code> . Because a segue is a transition between two view controllers, it is aware of its source view controller—<code>XYZAddToDoItemViewController</code>. By asking the segue object for its source view controller, you can access any data stored in the source view controller in the <code>unwindToList:</code> method. In this case, you want to access <code>toDoItem</code>. If it&rsquo;s nil, the item was never created—either the text field had no text or the user tapped the Cancel button. If there&rsquo;s a value for <code>toDoItem</code> , you retrieve the item, add it to your <code>toDoItems</code> array, and display it in the to-do list by reloading the data in the table view.</p>
+
+<h3>To store and display the new item</h3>
+
+<ol>
+<li>In the project navigator, select <code>XYZToDoListTableViewController.m</code>.</li>
+<li><p>In <code>XYZToDoListTableViewController.m</code> , add an import declaration to<code>XYZAddToDoItemViewController.h</code> above the <code>@interface</code> line.</p>
+
+<pre><code> #import  "XYZAddToDoItemViewController.h
+</code></pre></li>
+<li><p>Find the <code>unwindToList:</code> method you added in the second tutorial.</p></li>
+<li><p>In this method, retrieve the source view controller—the controller you&rsquo;re unwinding from,<code>XYZAddToDoItemViewController</code> .</p>
+
+<pre><code> XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+</code></pre></li>
+<li><p>Retrieve the controller&rsquo;s to-do item.</p>
+
+<pre><code> XYZToDoItem  *item  =  source.toDoItem;
+</code></pre>
+
+<p> This is the item that was created when the Done button was tapped.</p></li>
+<li><p>See whether the item exists.</p>
+
+<pre><code> if  (item  !=  nil)  {
+
+ }
+</code></pre>
+
+<p> If it’s nil, either the Cancel button closed the screen or the text field had no text, so you don’t want to save the item.If it does exist, add the item to your <code>toDoItems</code> array.</p>
+
+<pre><code> [self.toDoItems  addObject:item];
+</code></pre></li>
+<li><p>Reload the data in your table.
+Because the table view doesn’t keep track of its data, it’s the responsibility of the data source—in this case, your table view controller—to notify the table view when there’s new data for it to display.</p>
+
+<pre><code>[self.tableView  reloadData];
+</code></pre>
+
+<p>Your <code>unwindToList:</code> method should look like this:</p>
+
+<p><strong> (Warning: dont&rsquo;t forget to connect to the storyboard!! See the last tutorial!)</strong></p>
+
+<pre><code>-  (IBAction)unwindToList:(UIStoryboardSegue  *)segue
+{
+    XYZAddToDoItemViewController  *source  =  [segue  sourceViewController];
+    XYZToDoItem  *item  =  source.toDoItem;
+    if  (item  !=  nil)  {
+        [self.toDoItems  addObject:item];
+        [self.tableView  reloadData];
+    }
+}
+</code></pre></li>
+</ol>
+
+
+<p><strong>Checkpoint:</strong>  Run your app. Now when you click the Add button (+) and create a new item, you should see it in your to-do list. Congratulations! You’ve created an app that takes input from the user, stores it in an object, and passes that object between two view controllers. This is the foundation of moving data between scenes in a storyboard-based app.</p>
+
+<h3>Recap</h3>
+
+<p>You’re almost done with this introductory tour of developing apps for iOS. The final section gives you more information about how to find your way around the documentation, and it suggests some next steps you might take as you learn how to create more advanced apps.</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-03T23:28:46+08:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2015/04/03/severaltypesofsegues/" itemprop="url">Several Types of Segues</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<ul>
+<li><p><strong><em>Push.</em></strong> A push segue adds the destination view controller to the navigation stack. Push segues may only be used when the source view controller is connected to a navigation controller.</p></li>
+<li><p><strong><em>Modal.</em></strong> A modal segue is simply one view controller presenting another controller modally, requiring a user to perform some operation on the presented controller before returning to the main flow of the app.</p>
+
+<p>  A modal view controller isn&rsquo;t added to a navigation stack; instead, it&rsquo;s generally considered to be a child of the presenting view controller. The presenting view controller is responsible for dismissing the modalview controller it created and presented.</p></li>
+<li><p><strong><em>Custom.</em></strong> You can define your own custom transition by subclassing UIStoryboardSegue.</p></li>
+<li><p><strong><em>Unwind.</em></strong> An unwind segue moves backward through one or more segues to return the user to an existing instance of a view controller. You use unwind segues to implement reverse navigation.</p>
+
+<blockquote><p>An unwind segue is created by adding an action method to the destination view controller (the view controller you want to unwind to). A method that can be unwound to must return an action ( <code>IBAction</code> ) and take in a storyboard segue ( <code>UIStoryboardSegue</code> ) as a parameter. Because you want to unwind back to <code>XYZToDoListTableViewController</code> , you need to add an action method with this format to the <code>XYZToDoListTableViewController</code>  interface and implementation.</p>
+
+<p>  <em>—— RoadMapiOS,Apple</em></p></blockquote></li>
+</ul>
+
+
+<p>Instead of segues, scenes may also be connected by a relationship. For example, there’s a relationship between the navigation controller and its root view controller. In this case, the relationship represents the containment of the root view controller by the navigation controller.</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-03T23:26:15+08:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/memo/'>memo</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2015/04/03/cllocation-introduction/" itemprop="url">CLLocation Introduction (the Official Tutorial Study Notes)</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<hr />
+
+<p><br /></p>
+
+<h3>Two services can be used:</h3>
+
+<ol>
+<li><p>standard location service:</p>
+
+<ul>
+<li><p>configurable, general-purpose solution.</p></li>
+<li><p>getting location and tracking location changes for specified level of accuracy</p></li>
+</ul>
+</li>
+<li><p>significant-change location service:</p>
+
+<ul>
+<li><p>updates only when there has been a significant change in the device&rsquo;s location.</p></li>
+<li><p>such 500m or more.</p></li>
+</ul>
+</li>
+</ol>
+
+
+<p>Gathering location data is a power-intensive operation.Regardless of the importance of location data in your app, you&rsquo;d better periodically update it in case of draining battery.</p>
+
+<p>eg.</p>
+
+<ul>
+<li><p>Must keep monitoring location even while it&rsquo;s in the background;</p></li>
+<li><p>GPS-level accuracy isn&rsquo;t necessary for your app and you don&rsquo;t need continuous tracking.</p></li>
+</ul>
+
+
+<p><br /></p>
+
+<h3>Determining Whether Location Services Are Available</h3>
+
+<p>There are situations where location services may not be available:</p>
+
+<ul>
+<li><p>User disables location services in the Settings app or System Preferences;</p></li>
+<li><p>User denies location services for a specific app;</p></li>
+<li><p>Airplane Mode</p></li>
+</ul>
+
+
+<p>For these reasons, it&rsquo;s recommended that you always call the <code>locationServicesEnabled</code> class method of <code>CLLocatioManager</code> before attempting to start either two location services.It will return a Boolean.</p>
+
+<p><br /></p>
+
+<h3>Starting the Standard Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.</p></li>
+</ol>
+
+
+<p><br /></p>
+
+<ul>
+<li><p>As location data already becomes available, the location manager notifies its assigned delegate object.</p></li>
+<li><p>If a location update has already been delivered, you can also get the most recent location data directly from the <code>CLLocatinManager</code> object without waiting for a new event to be delivered.</p></li>
+<li><p>To stop the delivery of location updates, call the <code>stopUpdatingLocation</code> method of the  location manager object.</p></li>
+</ul>
+
+
+<p>See->&ldquo;Receiving Location Data from a Service&rdquo;</p>
+
+<p><br /></p>
+
+<h3>Start the Significant-Change Location Service</h3>
+
+<ol>
+<li><p>Create an instance of the <code>CLLocationManager</code> class;</p></li>
+<li><p>Configure its <code>desiredAccuracy</code> and <code>distanceFilter</code> properties;</p></li>
+<li><p>To begin receiving location notifications, assign a delegate to the object and call the <code>startUpdatingLocation</code> method.;</p></li>
+</ol>
+
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -346,19 +648,23 @@ pod update --verbose --no-repo-update
 <ol>
 <li><p>建立新文章</p>
 
-<p> rake new_post[&ldquo;这里是文章名&rdquo;]</p></li>
+<pre><code> rake new_post["这里是文章名"]
+</code></pre></li>
 <li><p>文章生成位置在 <code>octopress/source/_posts</code> 下，使用Mou编辑保存（或任意一款支持Markdown编辑的软件），这个过程中建议开启</p>
 
-<p> rake watch</p></li>
+<pre><code> rake watch
+</code></pre></li>
 <li><p>编辑完成后 <code>control+c</code> 停止 rake watch ，运行</p>
 
-<p> rake generate
- rake preview</p>
+<pre><code> rake generate
+ rake preview
+</code></pre>
 
 <p> 在 <a href="http://localhost:4000">http://localhost:4000</a> 可见预览页面。</p></li>
 <li><p>没有问题的话，运行</p>
 
-<p> rake deploy</p></li>
+<pre><code> rake deploy
+</code></pre></li>
 </ol>
 
 
@@ -423,20 +729,141 @@ git push origin source
 	<div class="entry-content" itemprop="articleBody">
 		<hr />
 
-<h2>关于作者</h2>
+<h1>关于作者</h1>
 
-<p><br /></p>
+<blockquote><p>胡  可</p>
 
-<p>在技术的道路上坚定前行</p>
+<p>1991年生人</p>
 
-<p><a href="http://www.zhihu.com/people/tian-hao-75-66">知乎主页</a></p>
+<p>于2014年7月毕业于黑龙江工程学院</p>
+
+<p>现在上海 在德企从事机械设计 半年iOS开发经验</p>
+
+<p>知乎重度用户，喜欢和刘看山一起工作，发现更大的世界</p></blockquote>
+
+<p><code>技术宅</code> <code>伪文青</code> <code>知乎者也</code> <code>iOS Dev.</code></p>
+
+<p><a href="http://www.zhihu.com/people/tian-hao-75-66">知乎主页</a>,欢迎私信^_^</p>
 
 <p><a href="https://github.com/darknighten">Github</a></p>
 
-<p>E-mail: <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x68;&#x69;&#x2d;&#x62;&#97;&#x69;&#45;&#100;&#117;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#x6d;">&#104;&#105;&#x2d;&#98;&#97;&#x69;&#45;&#100;&#117;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;</a></p>
+<p>E-mail: <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#104;&#x69;&#x2d;&#98;&#97;&#x69;&#x2d;&#100;&#117;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#109;">&#104;&#105;&#45;&#x62;&#x61;&#105;&#x2d;&#100;&#x75;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a></p>
 
-<p><br />
-<br /></p>
+<p>Tel :170 9457 0194</p>
+
+<h2>奖励与荣誉</h2>
+
+<ul>
+<li>第十四届全国机器人锦标赛暨FIRA世界杯机器人大赛中国区选拔赛 <strong>类人型机器人单人舞 三等奖</strong></li>
+<li>第六届全国三维数字化创新大赛 <strong>黑龙江省一等奖</strong></li>
+<li>“船动力”结构设计大赛 <strong>三等奖</strong></li>
+<li>毕业设计获校级优秀毕业设计及创新杯</li>
+</ul>
+
+
+<h2>实践经历</h2>
+
+<table>
+<thead>
+<tr>
+<th>职 务</th>
+<th>团 队</th>
+<th>备 注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>社长  </td>
+<td>《青春印记》杂志社</td>
+<td>  发起人，筹建组织，自学平面出版</td>
+</tr>
+<tr>
+<td>项目负责  </td>
+<td> 智能运水车(采用飞思卡尔系统)</td>
+<td>大学生创新创业项目</td>
+</tr>
+<tr>
+<td>项目负责  </td>
+<td>轨道式大型水稻作业机概念设计 </td>
+<td>第六届全国三维数字化创新大赛 三等奖</td>
+</tr>
+<tr>
+<td>程序员     </td>
+<td>全国机器人锦标赛</td>
+<td>舞蹈机器人 三等奖</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>在校编程经验</h2>
+
+<blockquote><p><strong>概况</strong></p>
+
+<p>依靠自学获得了嵌入式单片机开发、CATIA二次开发等技能，自学能力尚可</p></blockquote>
+
+<p>大二开始自学<code>单片机开发</code>，从16位飞思卡尔单片机起步，经历过51、Arduino、STM32等单片机开发，主要编程语言为<code>C语言</code>，毕业设计仍然为单片机系统——自动搬运车，闷在实验室自主开发了<code>有限状态机</code>，<code>模式识别</code>，<code>颜色识别</code>，<code>双机通讯</code>等功能，获当年<code>校级优秀毕业设计及创新杯</code>。</p>
+
+<p>工作实习期间，利用业余时间自学了CATIA（一款机械设计软件）的二次开发（基于<code>CATIAScript语言</code>），为公司同事开发过一些提高生产力，降低重复劳动比的小工具，未来有机会打算学学<code>Python</code>。</p>
+
+<h2>iOS开发经历</h2>
+
+<blockquote><p><strong>概况</strong></p>
+
+<p>大致半年开发经验，目前完成了 <a href="https://github.com/darknighten/littleWeather">littleWeather</a>的业务逻辑，正在加班之余处理UI，如果能办下信用卡就上架。</p>
+
+<p>使用过的第三方库：Alamofire，SwiftyJSON</p></blockquote>
+
+<ul>
+<li>2014.10 购买了MBP，开始从Swift入手iOS开发；</li>
+<li>2014.11 为了能看懂论坛上的一些问题和教程，入手了Big Nerd Ranch的《Objective-C编程》，了解了关于OC的语法及内存管理，得益于单片机开发经验，对内存管理的概念理解较快，但运行时机制仍需进一步体会；</li>
+<li>2014年末，由于公司项目上马，经常加班，开发与学习断断续续，也因此放弃了知乎的上一次登船邀请；</li>
+<li>2015年假过后继续学习，深感时间之宝贵，趁着项目不忙，每天晚上6点半~11点半，早6点~7点半，看视频，查文档，写第一个项目；</li>
+<li>2015.3 藉由在Github建立技术博客的机会，开始熟悉GitHub工作流，开始建立仓库并更新至今。</li>
+</ul>
+
+
+<h2>编程风格</h2>
+
+<blockquote><p><strong>概况</strong></p>
+
+<p>轻微强迫症倾向，喜欢代码之美</p></blockquote>
+
+<p>在校做单片机开发时（面向过程），喜欢<code>整合功能</code>，<code>分离不同功能的部分</code>，<code>降低耦合程度</code>，<code>提高代码复用性</code>，毕业设计曾把主控制器将近2K行代码压缩至480行。接触iOS开发之后，理解了<code>面向对象</code>及<code>设计模式</code>，发现正是我想要的^_^</p>
+
+<h2>英语水平</h2>
+
+<p>能看懂苹果开发文档</p>
+
+<p><strong>P.S.</strong> 在公司用的系统、软件、图纸都是英文的</p>
+
+<h2>其他</h2>
+
+<ul>
+<li>七年计算机硬件发烧友，曾长期混迹于ATI吧、ZOL论坛、太平洋论坛</li>
+<li>在校自学三年嵌入式单片机开发经验</li>
+<li>在校自学两年平面设计出版经验,熟练操作Photoshop、Indesign</li>
+<li>由于带过技术性团队，团队的支持曾使我动容</li>
+</ul>
+
+
+<p><img src="http://i2.tietuku.com/9cfbe64dfa821b19.jpg" alt="my icon" /></p>
+
+<h2>附言</h2>
+
+<p>越学越觉得</p>
+
+<p>有好多坑等待去排</p>
+
+<p>而这需要时间</p>
+
+<p>所以我期待着我能白天全职写代码</p>
+
+<p>晚上写笔记</p>
+
+<p>若还能去知乎做水手</p>
+
+<p>那将是最美好的事情</p>
 
 <h2>关于本博客</h2>
 

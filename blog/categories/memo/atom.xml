@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-21T22:42:40+08:00</updated>
+  <updated>2015-04-21T22:50:17+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -130,11 +130,10 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 
 <p>You’re almost done with this introductory tour of developing apps for iOS. The final section gives you more information about how to find your way around the documentation, and it suggests some next steps you might take as you learn how to create more advanced apps.</p>
 
-<p>@end</p>
-
 <p><br /></p>
 
-<p><br /></p>
+<p><br />
+@end</p>
 
 <hr />
 
@@ -236,11 +235,10 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 </ol>
 
 
-<p>@end</p>
-
 <p><br /></p>
 
-<p><br /></p>
+<p><br />
+@end</p>
 
 <hr />
 
@@ -295,11 +293,10 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 </ol>
 
 
-<p>@end</p>
-
 <p><br /></p>
 
-<p><br /></p>
+<p><br />
+@end</p>
 
 <hr />
 
@@ -334,11 +331,10 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
 #error "balabala"
 </code></pre>
 
-<p>@end</p>
-
 <p><br /></p>
 
-<p><br /></p>
+<p><br />
+@end</p>
 
 <hr />
 
@@ -370,11 +366,8 @@ pod update --verbose --no-repo-update
 
 <p><br /></p>
 
-<p>@end</p>
-
-<p><br /></p>
-
-<p><br /></p>
+<p><br />
+@end</p>
 
 <hr />
 

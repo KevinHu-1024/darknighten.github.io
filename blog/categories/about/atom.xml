@@ -4,7 +4,7 @@
   <title><![CDATA[Category: about | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/about/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-21T21:47:50+08:00</updated>
+  <updated>2015-04-21T22:21:44+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -18,9 +18,7 @@
     <link href="http://darknighten.github.io/blog/2015/03/31/guan-yu-wo/"/>
     <updated>2015-03-31T22:16:32+08:00</updated>
     <id>http://darknighten.github.io/blog/2015/03/31/guan-yu-wo</id>
-    <content type="html"><![CDATA[<h1>关于作者</h1>
-
-<p><br /></p>
+    <content type="html"><![CDATA[<p><br /></p>
 
 <blockquote><p>胡  可</p>
 
@@ -39,7 +37,7 @@
 <ul>
 <li><p><a href="http://www.zhihu.com/people/tian-hao-75-66">知乎主页</a>,欢迎私信^_^</p></li>
 <li><p><a href="https://github.com/darknighten">Github</a></p></li>
-<li><p>E-mail: <a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#104;&#105;&#45;&#x62;&#97;&#105;&#45;&#100;&#117;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#x6f;&#109;">&#x68;&#105;&#x2d;&#x62;&#x61;&#105;&#x2d;&#x64;&#x75;&#64;&#49;&#54;&#51;&#x2e;&#99;&#111;&#x6d;</a></p></li>
+<li><p>E-mail: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#x69;&#x2d;&#98;&#97;&#105;&#x2d;&#100;&#117;&#x40;&#49;&#54;&#x33;&#46;&#99;&#111;&#x6d;">&#x68;&#x69;&#x2d;&#98;&#x61;&#105;&#45;&#x64;&#117;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;</a></p></li>
 <li><p>Tel :170 9457 0194</p></li>
 </ul>
 
@@ -66,7 +64,7 @@
 </thead>
 <tbody>
 <tr>
-<td>社长  </td>
+<td>社  长  </td>
 <td>《青春印记》杂志社</td>
 <td>  发起人，筹建组织，自学平面出版</td>
 </tr>
@@ -81,7 +79,7 @@
 <td>第六届全国三维数字化创新大赛 三等奖</td>
 </tr>
 <tr>
-<td>程序员     </td>
+<td>程 序 员     </td>
 <td>全国机器人锦标赛</td>
 <td>舞蹈机器人 三等奖</td>
 </tr>
@@ -95,9 +93,11 @@
 
 <p>依靠自学获得了嵌入式单片机开发、CATIA二次开发等技能，自学能力尚可</p></blockquote>
 
-<p>大二开始自学<code>单片机开发</code>，从16位飞思卡尔单片机起步，经历过51、Arduino、STM32等单片机开发，主要编程语言为<code>C语言</code>，毕业设计仍然为单片机系统——自动搬运车，闷在实验室自主开发了<code>有限状态机</code>，<code>模式识别</code>，<code>颜色识别</code>，<code>双机通讯</code>等功能，获当年<code>校级优秀毕业设计及创新杯</code>。</p>
+<ul>
+<li><p>大二开始自学<code>单片机开发</code>，从16位飞思卡尔单片机起步，经历过51、Arduino、STM32等单片机开发，主要编程语言为<code>C语言</code>，毕业设计仍然为单片机系统——自动搬运车，闷在实验室自主开发了<code>有限状态机</code>，<code>模式识别</code>，<code>颜色识别</code>，<code>双机通讯</code>等功能，获当年<code>校级优秀毕业设计及创新杯</code>。</p></li>
+<li><p>工作实习期间，利用业余时间自学了CATIA（一款机械设计软件）的二次开发（基于<code>CATIAScript语言</code>），为公司同事开发过一些提高生产力，降低重复劳动比的小工具，未来有机会打算学学<code>Python</code>。</p></li>
+</ul>
 
-<p>工作实习期间，利用业余时间自学了CATIA（一款机械设计软件）的二次开发（基于<code>CATIAScript语言</code>），为公司同事开发过一些提高生产力，降低重复劳动比的小工具，未来有机会打算学学<code>Python</code>。</p>
 
 <h2>iOS开发经历</h2>
 
@@ -122,7 +122,10 @@
 
 <p>轻微强迫症倾向，喜欢代码之美</p></blockquote>
 
-<p>在校做单片机开发时（面向过程），喜欢<code>整合功能</code>，<code>分离不同功能的部分</code>，<code>降低耦合程度</code>，<code>提高代码复用性</code>，毕业设计曾把主控制器将近2K行代码压缩至480行。接触iOS开发之后，理解了<code>面向对象</code>及<code>设计模式</code>，发现正是我想要的^_^</p>
+<ul>
+<li>在校做单片机开发时（面向过程），喜欢<code>整合功能</code>，<code>分离不同功能的部分</code>，<code>降低耦合程度</code>，<code>提高代码复用性</code>，毕业设计曾把主控制器将近2K行代码压缩至480行。接触iOS开发之后，理解了<code>面向对象</code>及<code>设计模式</code>，发现正是我想要的^_^</li>
+</ul>
+
 
 <h2>英语水平</h2>
 
@@ -157,6 +160,8 @@
 <p>若还能去知乎做水手</p>
 
 <p>那将是最美好的事情</p>
+
+<p><br /></p>
 
 <h2>关于本博客</h2>
 

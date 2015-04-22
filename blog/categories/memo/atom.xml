@@ -4,7 +4,7 @@
   <title><![CDATA[Category: memo | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/memo/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-04-22T21:55:19+08:00</updated>
+  <updated>2015-04-22T21:57:55+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -154,7 +154,7 @@ Because the table view doesn’t keep track of its data, it’s the responsibili
     <id>http://darknighten.github.io/blog/2015/04/03/cllocation-introduction</id>
     <content type="html"><![CDATA[<hr />
 
-<p>这些是学习官方教程的一些笔记
+<p>这些是学习官方文档的一些笔记，原载于Evernote
 <br /></p>
 
 <h3>Two services can be used:</h3>

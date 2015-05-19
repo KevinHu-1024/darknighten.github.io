@@ -4,7 +4,7 @@
   <title><![CDATA[Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-05-19T21:12:47+08:00</updated>
+  <updated>2015-05-20T07:03:36+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[从码农到工程师（2)——xx语言难么？]]></title>
+    <link href="http://darknighten.github.io/blog/2015/05/19/cong-ma-nong-dao-gong-cheng-shi-2/"/>
+    <updated>2015-05-19T22:53:13+08:00</updated>
+    <id>http://darknighten.github.io/blog/2015/05/19/cong-ma-nong-dao-gong-cheng-shi-2</id>
+    <content type="html"><![CDATA[<p><br /></p>
+
+<p>(草稿，更新中……)</p>
+
+<p>又加了两周班，现在再来更新一下，从四月末到现在加了100多个小时，严重影响了开发学习进度。</p>
+
+<p>经常有很多编程初学者来问：“我想学编程，xx语言难么？”</p>
+
+<p>首先要清楚，语言是为了做什么，语言是“用计算机的逻辑向计算机描述一个事件的处理方法“，就像你对别人解释“把大象装冰箱总共分几步”，那么不同的计算机语言就像你用汉语还是用英语来解释这个问题一样，事情还是这个事情，这是“共性”，只是语法不同而已。那么不同的计算机语言中的“共性”是什么呢？笔者粗浅地涉猎过两三种语言，认为计算机语言无非包括以下四种共性：</p>
+
+<ul>
+<li>逻辑关系+本语言特性</li>
+<li>控制过程+本语言特性</li>
+<li>书写规范+本语言特性</li>
+<li>开发相关的SDK</li>
+</ul>
+
+
+<p>新手学习计算机语言，脑中要始终有这样四个“箱子”，把相关的语法“装进去”，到后来你会发现大部分的计算机语言都差不多，只是互相之间有所取舍而已。</p>
+
+<p><br />
+<br />
+@end</p>
+
+<hr />
+
+<p>您所查看的内容为本博客的 <a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a> 分类，更多内容可以浏览其他分类：</p>
+
+<p><a href="http://darknighten.github.io/blog/categories/note/"><strong>Note</strong></a>: <em>主要是分享一些技术笔记,标签&lt; Note ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/memo"><strong>Memo</strong></a>: <em>主要记录了开发一些常用的东西，方便备查，标签&lt; Memo ></em></p>
+
+<p><a href="http://darknighten.github.io/blog/categories/insight/"><strong>Insight</strong></a>: <em>记录了开发中一些个人感悟，标签&lt; Insight ></em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[本博客采用“Tick-Tock”规律更新]]></title>
@@ -54,7 +95,7 @@
     <id>http://darknighten.github.io/blog/2015/04/21/cong-ma-nong-dao-gong-cheng-shi-1</id>
     <content type="html"><![CDATA[<p><br /></p>
 
-<h6>PS：更新中……行文晦涩，努力改善</h6>
+<p>(草稿，更新中……)</p>
 
 <p>上周由于加班断po了一周，罪过罪过，算上之前攒下来没发的数篇笔记，已经累计N篇了。这周为Tock周，开始更新笔记。</p>
 
@@ -86,6 +127,8 @@
 <h2>植物：器官——抽象与面向对象</h2>
 
 <blockquote><p>从上一个代码中，抽离出与网络相关的代码和与定位相关的代码，并将他们分别作为两个对象——WeatherService和LocationService，用println进行功能测试</p></blockquote>
+
+<p>balabala……</p>
 
 <h2>动物：系统——设计模式与解耦</h2>
 
@@ -605,26 +648,26 @@ git push origin source
 
 <p>于2014年7月毕业于黑龙江工程学院</p>
 
-<p>现在上海       在德企从事机械设计     半年iOS开发经验</p></blockquote>
+<p>半年iOS开发经验</p></blockquote>
 
 <p><br />
-<code>技术宅</code> <code>伪文青</code> <code>iOS Dev.</code> <code>无折腾不欢乐</code></p>
+<code>技术宅</code> <code>伪文青</code> <code>iOS Dev.</code> <code>无折腾不欢乐</code> <code>swift</code></p>
 
 <p><br /></p>
 
 <p>常出没：</p>
 
 <ul>
-<li><p>看天下-<a href="http://weibo.com/1739782514/">新浪微博</a></p></li>
-<li><p>读知识-<a href="http://www.zhihu.com/people/tian-hao-75-66">知乎</a></p></li>
-<li><p>学代码-<a href="https://github.com/darknighten">Github</a></p></li>
+<li><p>看天下 -> <a href="http://weibo.com/1739782514/">新浪微博</a></p></li>
+<li><p>读知识 -> <a href="http://www.zhihu.com/people/tian-hao-75-66">知乎</a></p></li>
+<li><p>学代码 -> <a href="https://github.com/darknighten">Github</a></p></li>
 </ul>
 
 
 <p><br /></p>
 
 <ul>
-<li><p>联系我- <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#104;&#105;&#45;&#x62;&#97;&#x69;&#45;&#x64;&#117;&#64;&#x31;&#54;&#51;&#46;&#99;&#x6f;&#x6d;">&#104;&#x69;&#x2d;&#98;&#x61;&#x69;&#45;&#100;&#117;&#64;&#x31;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;</a></p></li>
+<li><p>联系我- <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#105;&#x2d;&#98;&#x61;&#105;&#x2d;&#x64;&#117;&#x40;&#x31;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x68;&#x69;&#45;&#x62;&#x61;&#105;&#x2d;&#x64;&#x75;&#x40;&#49;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;</a></p></li>
 <li><p>Tel :170 9457 0194</p></li>
 </ul>
 
@@ -686,7 +729,7 @@ git push origin source
 <p>依靠自学获得了嵌入式单片机开发、CATIA二次开发等技能，自学能力尚可，渴望时间。</p></blockquote>
 
 <ul>
-<li><p>大二开始自学<code>单片机开发</code>，从16位飞思卡尔单片机起步，经历过51、Arduino、STM32等单片机开发，主要编程语言为<code>C语言</code>，毕业设计仍然为单片机系统——自动搬运机器人，闷在实验室自主开发了<code>有限状态机</code>，<code>模式识别</code>，<code>颜色识别</code>，<code>双机通讯</code>等功能，获当年<code>校级优秀毕业设计及创新杯</code>。</p></li>
+<li><p>喜欢构建和控制(事物)，虽然是机械专业，但大二开始自学<code>单片机开发</code>，从16位飞思卡尔单片机起步，经历过51、Arduino、STM32等单片机开发，主要编程语言为<code>C语言</code>，毕业设计仍然为单片机系统——自动搬运机器人，闷在实验室自主开发了<code>有限状态机</code>，<code>模式识别</code>，<code>颜色识别</code>，<code>双机通讯</code>等功能，获当年<code>校级优秀毕业设计及创新杯</code>。</p></li>
 <li><p>工作实习期间，利用业余时间自学了CATIA（一款机械设计软件）的二次开发（基于<code>CATIAScript语言</code>），为公司同事开发过一些提高生产力，降低重复劳动比的小工具，未来有机会打算学学<code>Python</code>。</p></li>
 </ul>
 
@@ -746,9 +789,9 @@ git push origin source
 
 <p>而这需要时间</p>
 
-<p>所以我期待着我能白天全职写代码</p>
+<p>所以我期待着我能全职写代码</p>
 
-<p>晚上写笔记</p>
+<p>而不是每天工作之余那一点点时间</p>
 
 <p><br /></p>
 

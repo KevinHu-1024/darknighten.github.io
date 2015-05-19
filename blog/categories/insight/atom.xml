@@ -4,7 +4,7 @@
   <title><![CDATA[Category: insight | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/insight/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-05-19T21:12:47+08:00</updated>
+  <updated>2015-05-20T07:03:36+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -54,7 +54,7 @@
     <id>http://darknighten.github.io/blog/2015/04/21/cong-ma-nong-dao-gong-cheng-shi-1</id>
     <content type="html"><![CDATA[<p><br /></p>
 
-<h6>PS：更新中……行文晦涩，努力改善</h6>
+<p>(草稿，更新中……)</p>
 
 <p>上周由于加班断po了一周，罪过罪过，算上之前攒下来没发的数篇笔记，已经累计N篇了。这周为Tock周，开始更新笔记。</p>
 
@@ -86,6 +86,8 @@
 <h2>植物：器官——抽象与面向对象</h2>
 
 <blockquote><p>从上一个代码中，抽离出与网络相关的代码和与定位相关的代码，并将他们分别作为两个对象——WeatherService和LocationService，用println进行功能测试</p></blockquote>
+
+<p>balabala……</p>
 
 <h2>动物：系统——设计模式与解耦</h2>
 

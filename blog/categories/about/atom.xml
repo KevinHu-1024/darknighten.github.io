@@ -4,7 +4,7 @@
   <title><![CDATA[Category: about | Darknighten‘s Cave]]></title>
   <link href="http://darknighten.github.io/blog/categories/about/atom.xml" rel="self"/>
   <link href="http://darknighten.github.io/"/>
-  <updated>2015-05-19T20:49:16+08:00</updated>
+  <updated>2015-05-19T21:12:47+08:00</updated>
   <id>http://darknighten.github.io/</id>
   <author>
     <name><![CDATA[H.K.]]></name>
@@ -47,7 +47,7 @@
 <p><br /></p>
 
 <ul>
-<li><p>联系我- <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#104;&#105;&#45;&#x62;&#x61;&#105;&#x2d;&#100;&#x75;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;">&#104;&#105;&#45;&#98;&#x61;&#105;&#45;&#100;&#x75;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;</a></p></li>
+<li><p>联系我- <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#105;&#x2d;&#98;&#x61;&#x69;&#45;&#x64;&#x75;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#x6d;">&#104;&#105;&#x2d;&#98;&#97;&#x69;&#45;&#100;&#x75;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#111;&#x6d;</a></p></li>
 <li><p>Tel :170 9457 0194</p></li>
 </ul>
 
@@ -118,7 +118,7 @@
 
 <blockquote><p><strong>概况</strong></p>
 
-<p>大致半年开发经验，目前完成了 <a href="https://github.com/darknighten/littleWeather">littleWeather</a>的业务逻辑，正在加班之余处理UI，如果能办下信用卡，鼓捣好UI就上架。</p>
+<p>大致半年开发经验，目前完成了一个天气预报 <a href="https://github.com/darknighten/littleWeather">littleWeather</a>的业务逻辑，正在加班之余处理UI，如果能办下信用卡，鼓捣好UI就上架。</p>
 
 <p>使用过的第三方库：Alamofire，SwiftyJSON</p></blockquote>
 
@@ -126,9 +126,9 @@
 <li>2014.10 购买了MBP，开始从Swift入手iOS开发；</li>
 <li>2014.11 为了能看懂论坛上的一些问题和教程，入手了Big Nerd Ranch的《Objective-C编程》，了解了关于OC的语法及内存管理，得益于单片机开发经验，对内存管理的概念理解较快，但运行时机制仍需进一步体会；</li>
 <li>2014年末，由于公司项目上马，经常加班，开发与学习断断续续；</li>
-<li>2015年假过后继续学习，深感时间之宝贵，趁着项目不忙，每天晚上6点半~11点半，早6点~7点半，看视频，查文档，写第一个项目；</li>
+<li>2015年假过后继续学习，深感时间之宝贵，趁着项目不忙，每天晚上6点半~11点半，早6点~7点半，看视频，查文档，开始写第一个项目；</li>
 <li>2015.3 藉由在Github建立技术博客的机会，开始熟悉GitHub工作流，开始建立项目并更新至今;</li>
-<li>2015.5 开始疯狂加班，断更</li>
+<li>2015.5 开始疯狂加班，暂时断更了</li>
 </ul>
 
 
